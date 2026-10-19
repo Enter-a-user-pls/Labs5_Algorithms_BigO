@@ -1,0 +1,4 @@
+
+LAST_NAME = "Solis"            
+STUDENT_ID = "TUPM-26-1227"       
+FAVORITE_ARTIST = "GUNS N ROSES"  

@@ -6,6 +6,27 @@ import random
 import time
 
 
+def get_student_inputs():
+    last_name = LAST_NAME.strip()
+    student_id = STUDENT_ID.strip()
+    artist = FAVORITE_ARTIST.strip()
+
+    digits = [int(c) for c in student_id if c.isdigit()]
+    name_letters = [c for c in last_name.upper() if c.isalpha()]
+    artist_letters = [c for c in artist.upper() if c.isalpha()]
+    if not digits or not name_letters or not artist_letters:
+        raise SystemExit("Invalid values: STUDENT_ID needs digits; names need letters.")
+
+    return {
+        "LAST_NAME": last_name,
+        "STUDENT_ID": student_id,
+        "FAVORITE_ARTIST": artist,
+        "SEED_DIGIT": digits[-1],
+        "ID_SUM": sum(digits),
+        "NAME_LENGTH": len(name_letters),
+        "ARTIST_LENGTH": len(artist_letters),
+        "ARTIST_SUM": sum(ord(c) - 64 for c in artist_letters),
+    }
 
 
 # ---------- Data generation ----------
